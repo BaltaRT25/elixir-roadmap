@@ -9,4 +9,8 @@ defmodule Roadmap do
   def say do
     IO.puts("Hello, World!")
   end
+
+  def hello do
+    :world
+  end
 end
