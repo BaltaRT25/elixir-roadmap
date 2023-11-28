@@ -37,6 +37,30 @@ defmodule Calculator do
     end
   end
 
+  # what if number2 is zero?
+  def divide(number1, 0) do
+    if is_number(number1) do
+      {:error, "No valid operation."}
+    else
+      default_message()
+    end
+  end
+
+  # what if number1 is zero?
+  def divide(0, number2) do
+    if is_number(number2) do
+      {:ok, 0}
+    else
+      default_message()
+    end
+  end
+
+  def divide(number1, number2) do
+    if is_number(number1) and is_number(number2) do
+      {:ok, number1 / number2}
+    end
+  end
+
   def validate_numbers(number1, number2) do
     if is_number(number1) and is_number(number2) do
       true
