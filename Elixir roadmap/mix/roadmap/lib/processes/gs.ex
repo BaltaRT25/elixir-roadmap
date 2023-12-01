@@ -23,6 +23,16 @@ defmodule Processes.Gs do
     {:ok, args}
   end
 
+  # También se puede regresar un stop o un ignore al iniciar un GenServer
+  # con stop se detiene el Genserver, con ignore ignora el error pero no detiene el GenServer
+  # def init(_args) do
+  #   {:stop, "Error al iniciar"}
+  # end
+
+  # def init(_args) do
+  #   {:ignore}
+  # end
+
   def handle_call({:delete, item}, _from, state) do
     update_state = List.delete(state, item)
     {:reply, update_state, update_state}
